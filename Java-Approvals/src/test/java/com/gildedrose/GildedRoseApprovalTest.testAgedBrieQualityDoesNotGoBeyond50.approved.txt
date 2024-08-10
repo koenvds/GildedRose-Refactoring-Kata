@@ -1,0 +1,3 @@
+Items[0] = Aged Brie, 9, 50
+Items[1] = Aged Brie, -1, 50
+Items[2] = Aged Brie, -2, 50
