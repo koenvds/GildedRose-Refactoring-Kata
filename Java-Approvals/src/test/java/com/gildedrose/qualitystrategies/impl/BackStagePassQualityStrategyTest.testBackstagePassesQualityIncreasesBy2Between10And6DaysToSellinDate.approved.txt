@@ -1,0 +1,8 @@
+Item sellin going from 10 to 6 ==> quality up by 2 (from 0)
+
+
+items[0] = Backstage passes to a TAFKAL80ETC concert, 9, 2
+items[1] = Backstage passes to a TAFKAL80ETC concert, 8, 2
+items[2] = Backstage passes to a TAFKAL80ETC concert, 7, 2
+items[3] = Backstage passes to a TAFKAL80ETC concert, 6, 2
+items[4] = Backstage passes to a TAFKAL80ETC concert, 5, 2
