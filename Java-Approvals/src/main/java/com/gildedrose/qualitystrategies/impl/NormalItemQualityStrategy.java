@@ -10,14 +10,7 @@ public class NormalItemQualityStrategy extends AbstractItemQualityStrategy {
 	 * @param item the item which quality needs to be adjusted
 	 * @return the difference between the current quality and the new
 	 */
-	protected int getQualityDelta(final Item item) {
-		// Degrade quality by 1 every cycle
-		int delta = -1;
-		// If past due date, degrade twice as fast
-		if (item.sellIn <= 0) {
-			delta *= 2;
-		}
-
-		return delta;
+	protected int getQualityDelta(Item item) {
+		return item.sellIn > 0 ? -1 : -2;
 	}
 }

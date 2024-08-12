@@ -34,11 +34,6 @@ public class QualityStrategyFactory {
 	 * @return the quality strategy.
 	 */
 	public static QualityStrategy createQualityStrategy(Item item) {
-		QualityStrategy strategy = qualityStrategies.get(item.name);
-		if (strategy == null) {
-			strategy = defaultStrategy;
-		}
-		return strategy;
+		return qualityStrategies.getOrDefault(item.name, defaultStrategy);
 	}
-
 }
