@@ -14,7 +14,7 @@ public abstract class AbstractItemQualityStrategy implements QualityStrategy {
 	 * @param item the item which quality needs to be adjusted
 	 * @return the difference between the current quality and the new
 	 */
-	protected abstract int getQualityDelta(final Item item);
+	protected abstract int getQualityDelta(Item item);
 
 	private void updateItemQuality(Item item) {
 		int qualityDelta = this.getQualityDelta(item);
@@ -26,7 +26,7 @@ public abstract class AbstractItemQualityStrategy implements QualityStrategy {
 	}
 
 	@Override
-	public void updateItem(Item item) {
+	public final void updateItem(Item item) {
 		this.updateItemQuality(item);
 		this.updateItemSellIn(item);
 	}
