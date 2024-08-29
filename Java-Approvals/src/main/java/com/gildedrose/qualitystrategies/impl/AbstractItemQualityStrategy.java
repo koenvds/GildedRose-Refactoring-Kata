@@ -34,29 +34,29 @@ public abstract class AbstractItemQualityStrategy implements QualityStrategy {
 	private void attemptUpdateQuality(Item item, int qualityUpdate) {
 		// If quality decreases
 		if (qualityUpdate < 0) {
-			// Do not change the quality if it is lower than the minimum already
-			if (isQualityLowerThanMinimum(item)) {
-				return;
+			// Only decrease the quality if it is higher than the minimum
+			if (isQualityHigherThanMinimum(item)) {
+				// Update the quality, but make sure it doesn't decrease below the minimum.
+				item.quality = Math.max(item.quality + qualityUpdate, MIN_ITEM_QUALITY);
 			}
-			// Update the quality, but make sure it doesn't decrease below the minimum.
-			item.quality = Math.max(item.quality + qualityUpdate, MIN_ITEM_QUALITY);
 		}
 		// If quality increases
-		if (qualityUpdate > 0) {
-			// Do not change the quality if it is higher than the maximum already
-			if (isQualityHigherThanMaximum(item)) {
-				return;
+		else if (qualityUpdate > 0) {
+			// Only increase the quality if it is lower than the maximum
+			if (isQualityLowerThanMaximum(item)) {
+				// Update the quality, but make sure it doesn't increase above the maximum
+				item.quality = Math.min(item.quality + qualityUpdate, MAX_ITEM_QUALITY);
 			}
-			// Update the quality, but make sure it doesn't increase above the maximum
-			item.quality = Math.min(item.quality + qualityUpdate, MAX_ITEM_QUALITY);
 		}
 	}
 
-	private boolean isQualityHigherThanMaximum(Item item) {
-		return item.quality > MAX_ITEM_QUALITY;
+	private boolean isQualityLowerThanMaximum(Item item) {
+		return item.quality < MAX_ITEM_QUALITY;
 	}
 
-	private boolean isQualityLowerThanMinimum(Item item) {
-		return item.quality < MIN_ITEM_QUALITY;
+	private boolean isQualityHigherThanMinimum(Item item) {
+		return item.quality > MIN_ITEM_QUALITY;
 	}
+
+
 }
