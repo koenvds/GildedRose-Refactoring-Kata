@@ -8,9 +8,6 @@ public abstract class AbstractItemQualityStrategy implements QualityStrategy {
 	private final int MAX_ITEM_QUALITY = 50;
 
 	/**
-	 * The quality delta is -1 when the sellIn date is more than zero. The quality
-	 * delta is -2 when the sellIn date is zero or below.
-	 * 
 	 * @param item the item which quality needs to be adjusted
 	 * @return the difference between the current quality and the new
 	 */
